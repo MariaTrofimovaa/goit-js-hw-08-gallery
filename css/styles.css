@@ -138,3 +138,21 @@ body {
 .lightbox__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.lightbox__left {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  max-width: 4vw;
+  max-height: 20vh;
+  left: 3%;
+}
+
+.lightbox__right {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  max-width: 4vw;
+  max-height: 20vh;
+  right: 3%;
+}
