@@ -39,13 +39,19 @@ const createGallery = () => {
   refs.gallery.insertAdjacentHTML("afterbegin", galleryRef);
 };
 
+function changeAttribute(src, alt) {
+  refs.lightboxImg.src = src;
+  refs.lightboxImg.alt = alt;
+}
+
 function openModal(event) {
   const target = event.target;
 
   if (target.nodeName === "IMG") {
     refs.lightbox.classList.add("is-open");
-    refs.lightboxImg.src = target.dataset.source;
-    refs.lightboxImg.alt = target.alt;
+    changeAttribute(target.dataset.source, target.alt);
+    // refs.lightboxImg.src = target.dataset.source;
+    // refs.lightboxImg.alt = target.alt;
     refs.lightboxImg.dataset.index = target.dataset.index;
     currentImg = +target.dataset.index;
     return;
@@ -54,8 +60,9 @@ function openModal(event) {
 
 function closeModal() {
   refs.lightbox.classList.remove("is-open");
-  refs.lightboxImg.src = "";
-  refs.lightboxImg.alt = "";
+  changeAttribute("", "");
+  // refs.lightboxImg.src = "";
+  // refs.lightboxImg.alt = "";
   return;
 }
 
